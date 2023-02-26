@@ -1,0 +1,27 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://dcist.com/wp-content/uploads/sites/3/2020/04/felix-mooneeram-evlkOfkQ5rE-unsplash-1024x683.jpg);">
+  <div class="container">
+    <h1>All Lists</h1>
+  </div>
+</div>
+
+
+<div class="m-4">
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list), class:"link-text" do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://c4.wallpaperflare.com/wallpaper/862/449/162/jack-reacher-star-wars-interstellar-movie-john-wick-wallpaper-preview.jpg)">
+          <%= list.name %>
+        </div>
+      <% end %>
+      <p><%= link_to "Delete", list_path(list), turbo_method: :delete, class:'link-text' %></p>
+    <% end %>
+  </div>
+
+
+  <h2 class="m-4">Add a list</h2>
+    <%= simple_form_for(@list) do |f| %>
+      <%= f.input :name %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
